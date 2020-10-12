@@ -1,10 +1,9 @@
 const express = require('express');
 const config = require('config');
 const app = express();
-const testroute = require('./routes/users');
 
-app.use(express.json());
-app.use('/test',testroute);
+require('./routes/routes')(app);
+
 //Wersja tymczasowa
 app.use(function(err,req,res,next){
     res.status(500).send('Something went wrong');
